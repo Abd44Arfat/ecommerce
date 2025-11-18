@@ -1,5 +1,4 @@
 import mongoose, { Types } from "mongoose";
-
 const schema = new mongoose.Schema({
     name: {
         type: String,
@@ -15,20 +14,19 @@ const schema = new mongoose.Schema({
 
 
     },
-    image: {type:String,
-
-required: true
-
-    },
+    logo: String,
     createdBy: {
-        type:Types.ObjectId,
+        type: Types.ObjectId,
+
         ref: "User",
     },
+
 }, { timesstamps: true, versionKey: false });
 
+
+
 schema.post('init',function(doc){
-doc.image=process.env.BASE_URL+"categories/" + doc.image
-
-})
-
-export const Category = mongoose.model('Category', schema);
+    doc.logo=process.env.BASE_URL+"brands/" + doc.logo
+    
+    })
+export const Brand = mongoose.model('Brand', schema);
