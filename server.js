@@ -7,13 +7,15 @@ import dotenv from "dotenv"
 dotenv.config()
 const app = express();
 const port = 3000;
-app.use(express.json());
 
+app.use(express.json())
 
-
-bootstrap(app);
-
-
+app.use('/uploads',express.static('uploads'))
+bootstrap(app)
+app.use((req, res, next) => {
+  next(new AppError(`Route not found: ${req.originalUrl}`, 404));
+});
+ app.use(globalError)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

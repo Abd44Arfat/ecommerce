@@ -53,7 +53,7 @@ const getCategory = catchError(async (req, res, next) => {
 });
 
             
-        const deleteCategory =deleteOne(Category)
+        const deleteCategory =deleteOne(Category,"Category");
             
             
     
