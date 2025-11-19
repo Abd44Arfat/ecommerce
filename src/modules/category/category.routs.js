@@ -1,16 +1,17 @@
 
 import { Router } from "express";
 import { addCategory, getCategory,allCategories, updateCategory,deleteCategory} from "./category.controller.js";
+import { uploadSinleFile } from "../../fileUpload/fileUpload.js";
 
 const categoryRouter=Router()
 
 categoryRouter.route('/')
-.post(addCategory)
+.post(uploadSinleFile("image", 'Categories'),addCategory)
 .get(allCategories)
 
 categoryRouter.route('/:id')
 .get(getCategory)
-.put(updateCategory)
+.put(uploadSinleFile("image", 'Categories'),updateCategory)
 .delete(deleteCategory)
 
 

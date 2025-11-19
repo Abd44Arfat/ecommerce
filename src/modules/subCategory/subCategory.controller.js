@@ -19,7 +19,7 @@ const addsubCategory = catchError(async (req, res, next) => {
 
 
 
-const allCategories =catchError(async (req,res,next)=>{
+const allSubCategories =catchError(async (req,res,next)=>{
 
 let apiFeatures=new ApiFeature(SubCategory.find(),req.query).pagination().fields().filter().sort().search()
 
@@ -61,10 +61,10 @@ const getsubCategory = catchError(async (req, res, next) => {
 
 export {
 
-    addCategory,
-    allCategories,
-    getCategory,
-    updateCategory,
-    deleteCategory
+    addsubCategory,
+    allSubCategories,
+    getsubCategory,
+    updatesubCategory,
+    deletesubCategory
 
 }

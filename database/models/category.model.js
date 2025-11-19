@@ -17,7 +17,7 @@ const schema = new mongoose.Schema({
     },
     image: {type:String,
 
-// required: true
+required: true
 
     },
     createdBy: {
@@ -27,7 +27,8 @@ const schema = new mongoose.Schema({
 }, { timesstamps: true, versionKey: false });
 
 schema.post('init',function(doc){
-doc.image=process.env.BASE_URL+"categories/" + doc.image
+// doc.image=process.env.BASE_URL+"categories/" + doc.image
+doc.image="http://localhost:3000/uploads/"+"categories/" + doc.image
 
 })
 
